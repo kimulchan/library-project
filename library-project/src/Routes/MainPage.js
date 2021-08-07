@@ -1,15 +1,31 @@
 import styled from "styled-components";
 import Library1 from "../Assets/도서관1.jpg"
-import LibraryIcon from "../Assets/도서관아이콘.png"
 function MainPage() {
     return(
         <>
-            <MainImage imgUrl={Library1}></MainImage>
+            <Slide>
+                <ul>
+                <MainImage imgUrl={Library1}></MainImage>
+                <MainImage imgUrl={Library1}></MainImage>
+                <MainImage imgUrl={Library1}></MainImage>
+                <MainImage imgUrl={Library1}></MainImage>
+                </ul>
+                
+            </Slide>
+            
             <LibraryListWrapper>
+            <NewBook>New Book</NewBook>
+            <Librarys>
+                    
+                    <Library ></Library>
+                    <Library ></Library>
+                    <Library ></Library>
+                </Librarys>
                 <Librarys>
-                    <Library imgUrl={LibraryIcon}></Library>
-                    <Library imgUrl={LibraryIcon}></Library>
-                    <Library imgUrl={LibraryIcon}></Library>
+
+                    <Library ></Library>
+                    <Library ></Library>
+                    <Library ></Library>
                 </Librarys>
             
             </LibraryListWrapper>
@@ -17,22 +33,55 @@ function MainPage() {
     );
 }
 export default MainPage
-const MainImage = styled.div`
-    width: 100%;
+
+const Slide = styled.div`
     height: 400px;
+    overflow:hidden;
+
+    & ul{
+        width: calc(100% * 4);
+        display:flex;
+        animation:slide 32s infinite;
+    }
+    & li{
+        width:calc(100% / 4);
+        height:400px;
+    }
+    @keyframes slide{
+        0% {margin-left:0;}
+        10%{margin-left:0;}
+        25%{margin-left:-100%}
+        35%{margin-left:-100%}
+        50%{margin-left:-200%}
+        60%{margin-left:-200%}
+        75%{margin-left:-300%}
+        85%{margin-left:-300%}
+        100%{margin-left:0}
+    }
+`
+
+const MainImage = styled.li`
     background-image: url(${(props)=>props.imgUrl});
     background-position: center;
 
 `
 const LibraryListWrapper= styled.div`
-    height:400px;
+    height:900px;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+
+`
+const NewBook = styled.div`
+    height:100px;
+    font-size: 45px;
     display: flex;
     justify-content: center;
-    
+    align-items: center;
 `
 const Librarys= styled.div`
     width: 60%;
-    height: 100%;
+    height: 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
