@@ -6,6 +6,7 @@ const GlobalStyles= createGlobalStyle`
     *{
         list-style: none;
         box-sizing: border-box;
+        font-family:"Brush Script MT";
      
     }
     a{
@@ -21,13 +22,14 @@ const GlobalStyles= createGlobalStyle`
         justify-content: center;
         cursor: pointer;
         outline:none;
-        border-radius: 3px;
 
     };
     input{
         display:flex;
         align-items: center;
         justify-content: center;
+        
+        outline:none;
 
     }
 
