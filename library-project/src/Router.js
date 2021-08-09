@@ -12,10 +12,11 @@ function RouteContent (){
         <TopBar></TopBar>
         <Switch>
             <Route path="/" component={MainPage}exact></Route>
-            <Route path="/librarylist" component={LibraryListPage}></Route>
+            <Route path="/librarylist" component={LibraryListPage} ></Route>
             <Route path="/libraryregistration" component={LibraryRegistration}></Route>
-            <Route path="/booklist" component={BookList}></Route>
-            <Route path="/bookregistration" component={BookRegistration}></Route>
+            <Route path="/booklist/:id" component={BookList} ></Route>
+            <Route path="/bookregistration/:id" component={BookRegistration} ></Route>
+            
         </Switch>
         <BottomBar></BottomBar>
     </>
