@@ -4,11 +4,11 @@ function TopBar() {
     return(
         <Wrapper>
             <ContentsWrapper>
-                <Link to='/'><Logo>Library</Logo></Link>
+                <Logo><Link to='/'>Library</Link></Logo>
                 <MenuWrapper>
-                    <Link to='bookregistration'><Menu>Book Registration</Menu></Link>
-                    <Link to='libraryregistration'><Menu>Library Registration</Menu></Link>
-                    <Link to='librarylist'><Menu>Library List</Menu></Link>
+                    <Link to='/bookregistration/0'><Menu>Book Registration</Menu></Link>
+                    <Link to='/libraryregistration'><Menu>Library Registration</Menu></Link>
+                    <Link to='/librarylist'><Menu>Library List</Menu></Link>
                     
                 </MenuWrapper>
             </ContentsWrapper>
