@@ -1,30 +1,37 @@
-import styled from "styled-components"
+import { useRef,useEffect } from "react";
+import { useParams } from "react-router-dom";
+import {RegistrationButton, BookWrapper,SelectWrapper,Wrapper,WrapperInfo,BookTitle} from '../Styles/BookRegistration-style'
+import Default from "../Components/BookRegistration/Default";
+import LibraryOption from "../Components/BookRegistration/LibraryOption";
+import PatchBook from "../Components/BookRegistration/PatchBook";
 
 function BookRegistration() {
+
+    const {id}=useParams();
+    const title=useRef();
+    const select= useRef();
+    
     return(
     <>
         <BookTitle>Book Registration</BookTitle>
         <Wrapper>
-            <WrapperInfo></WrapperInfo>
+            <WrapperInfo>
+                <SelectWrapper>Library Select  
+                    <select ref={select}>
+                        <LibraryOption></LibraryOption>
+                    </select>
+                </SelectWrapper>
+                <BookWrapper>Book Name
+                    <input ref={title} value={Default(id)}></input>
+                </BookWrapper>
+                <RegistrationButton onClick={()=>{PatchBook({title:title.current.value,libraryId:select.current.value,bookId:id})
+                title.current.value='';
+
+            }}>Book Registration</RegistrationButton>
+            </WrapperInfo>
         </Wrapper>
     </>
     );
 }
 
 export default BookRegistration;
-
-const BookTitle= styled.div`
-    font-size: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 60px 0;
-`
-const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`
-const WrapperInfo = styled.div`
-    width: 60%;
-    height: calc(100vh - 415.8px);
-`
