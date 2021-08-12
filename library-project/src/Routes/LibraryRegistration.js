@@ -1,30 +1,24 @@
-import styled from "styled-components"
+import { useRef } from "react";
+import {WrapperInfo,LibraryInput,LibraryButton,Wrapper,Title} from "../Styles/LibraryRegistration-style"
+import PostLibrary from "../Components/LibraryRegistration/PostLibrary";
 
 function LibraryRegistration() {
+
+    const Input = useRef();
     return(
     <>
         <Title>Library Registration</Title>
         <Wrapper>
-            <WrapperInfo></WrapperInfo>
+            <WrapperInfo>
+                    <LibraryInput ref={Input}></LibraryInput>
+                    <LibraryButton onClick={()=>{PostLibrary(Input.current.value)
+                    Input.current.value='';
+                    }}>Library Registration</LibraryButton>
+                
+            </WrapperInfo>
         </Wrapper>
     </>
     );
 }
 
 export default LibraryRegistration;
-
-const Title= styled.div`
-    font-size: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 60px 0;
-`
-const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`
-const WrapperInfo = styled.div`
-    width: 60%;
-    height: calc(100vh - 415.8px);
-`
